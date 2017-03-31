@@ -4,8 +4,6 @@ import React from 'react';
 import Dashboard from './dashboard/dashboard';
 import Login from './login';
 
-
-
 export default React.createClass({
     getInitialState() {
         return {

@@ -4,14 +4,16 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "test": "node scripts/test --env=jsdom"
+    "test": "node scripts/test --coverage --env=jsdom"
   },
   "author": "Marcos Tomatti <markost@gmail.com>",
-  "contributors": ["Adrian"],
+  "contributors": [
+    "Adrian"
+  ],
   "productName": "ShortCircuit",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/chefguevara/short-circuit.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chefguevara/short-circuit.git"
   },
   "license": "MIT",
   "dependencies": {
@@ -31,29 +33,32 @@
     "toastr": "^2.1.2"
   },
   "devDependencies": {
-    "babel-jest": "^18.0.0",
     "babel-eslint": "^7.1.1",
+    "babel-jest": "^18.0.0",
     "babel-plugin-transform-react-jsx": "^6.23.0",
+    "dotenv": "^2.0.0",
     "electron-devtools-installer": "^2.1.0",
     "electron-prebuilt": "^1.4.13",
-    "dotenv": "^2.0.0",
     "eslint": "^3.16.1",
     "eslint-config-react-app": "^0.6.2",
     "eslint-plugin-flowtype": "^2.21.0",
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "^6.4.1",
-    "object-assign": "^4.1.1",
     "jest": "^18.1.0",
+    "object-assign": "^4.1.1",
     "whatwg-fetch": "^2.0.2"
   },
-
   "jest": {
     "collectCoverageFrom": [
-      "view/**/*.{js,jsx}"
+      "view/**/*.{js,jsx}",
+      "!**/node_modules/**"
     ],
+    "coverageDirectory": "<rootDir>/reports/coverage",
+    "coverageReporters": ["json", "lcov", "text", "html"],
     "setupFiles": [
-      "<rootDir>/scripts/polyfills.js"
+      "<rootDir>/scripts/polyfills.js",
+      "<rootDir>/scripts/createDocument.js"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"
