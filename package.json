@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "test": "node scripts/test --env=jsdom"
   },
   "author": "Marcos Tomatti <markost@gmail.com>",
   "contributors": ["Adrian"],
@@ -30,8 +31,53 @@
     "toastr": "^2.1.2"
   },
   "devDependencies": {
+    "babel-jest": "^18.0.0",
+    "babel-eslint": "^7.1.1",
     "babel-plugin-transform-react-jsx": "^6.23.0",
     "electron-devtools-installer": "^2.1.0",
-    "electron-prebuilt": "^1.4.13"
+    "electron-prebuilt": "^1.4.13",
+    "dotenv": "^2.0.0",
+    "eslint": "^3.16.1",
+    "eslint-config-react-app": "^0.6.2",
+    "eslint-plugin-flowtype": "^2.21.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-react": "^6.4.1",
+    "object-assign": "^4.1.1",
+    "jest": "^18.1.0",
+    "whatwg-fetch": "^2.0.2"
+  },
+
+  "jest": {
+    "collectCoverageFrom": [
+      "view/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/scripts/polyfills.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/scripts/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/scripts/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    }
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   }
 }

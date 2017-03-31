@@ -1,5 +1,5 @@
 import React from 'react';
-import {ipcRenderer} from 'electron';
+//import {ipcRenderer} from 'electron';
 
 import Dashboard from './dashboard/dashboard';
 import Login from './login';
