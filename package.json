@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "test": "node scripts/test --coverage --env=jsdom"
+    "test": "node scripts/test --env=jsdom",
+    "test:coverage": "node scripts/test --coverage --env=jsdom"
   },
   "author": "Marcos Tomatti <markost@gmail.com>",
   "contributors": [
